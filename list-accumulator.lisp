@@ -1,10 +1,14 @@
 
 (defclass list-accumulator ()
-  ((contents :accessor contents :reader accumulator-contents)
+  ((contents 
+    :accessor contents 
+    :reader accumulator-contents
+    :initform nil)
    (last-pointer :accessor last-pointer)))
 
 (defmethod make-accumulator ((type (eql 'cons)) &rest initargs)
-  (apply #'make-instance 'list initargs))
+  (declare (ignore initargs))
+  (make-instance 'list-accumulator))
 
 (defmethod make-accumulator ((type (eql 'list)) &rest initargs)
   (declare (ignore initargs))
