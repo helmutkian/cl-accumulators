@@ -1,7 +1,0 @@
-
-(defclass append-accumulator (list-accumulator) ())
-
-(defmethod make-accumulator ((type (eql 'append)) &rest initargs)
-  (declare (ignore initargs))
-  (make-instance 'append-accumulator))
-
