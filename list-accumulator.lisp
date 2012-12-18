@@ -7,11 +7,9 @@
    (last-pointer :accessor last-pointer)))
 
 (defmethod make-accumulator ((type (eql 'cons)) &key)
-  (declare (ignore initargs))
   (make-instance 'list-accumulator))
 
 (defmethod make-accumulator ((type (eql 'list)) &key)
-  (declare (ignore initargs))
   (make-instance 'list-accumulator))
 
 (defmethod accumulator-into ((acc list-accumulator) &rest args)
