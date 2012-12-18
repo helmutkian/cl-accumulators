@@ -1,8 +1,7 @@
 
 (defclass nconc-accumulator (list-accumulator) ())
 
-(defmethod make-accumulator ((type (eql 'nconc)) &rest initargs)
-  (declare (ignore initargs))
+(defmethod make-accumulator ((type (eql 'nconc)) &key)
   (make-instance 'nconc-accumulator))
 
 (defmethod accumulator-into ((acc nconc-accumulator) &rest args)

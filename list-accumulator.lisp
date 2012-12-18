@@ -6,11 +6,11 @@
     :initform nil)
    (last-pointer :accessor last-pointer)))
 
-(defmethod make-accumulator ((type (eql 'cons)) &rest initargs)
+(defmethod make-accumulator ((type (eql 'cons)) &key)
   (declare (ignore initargs))
   (make-instance 'list-accumulator))
 
-(defmethod make-accumulator ((type (eql 'list)) &rest initargs)
+(defmethod make-accumulator ((type (eql 'list)) &key)
   (declare (ignore initargs))
   (make-instance 'list-accumulator))
 

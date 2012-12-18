@@ -17,7 +17,7 @@
   (call-next-method)
   acc)
 
-(defgeneric make-accumulator (type &rest initargs)
+(defgeneric make-accumulator (type &key)
   (:documentation 
    "Factory function for accumulators. Allows for their creation 
     according to a first-class definition."))

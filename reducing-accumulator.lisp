@@ -9,8 +9,11 @@
     :initarg :initial-value)))
 
 
-(defmethod make-accumulator ((type (eql 'reducing)) &rest initargs)
-  (apply #'make-instance 'reducing-accumulator initargs))
+(defmethod make-accumulator 
+  ((type (eql 'reducing)) &key function initial-value)
+  (make-instance 'reducing-accumulator 
+		 :function function
+		 :initial-value initial-value))
 
 (defmethod accumulator-into ((acc reducing-accumulator) &rest args)
   (setf (val acc) (apply (fn acc) (val acc) args)))
