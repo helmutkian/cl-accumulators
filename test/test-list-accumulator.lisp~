@@ -1,0 +1,10 @@
+
+(defun accumulate-list ()
+  (let ((acc (make-accumulator 'list)))
+   (dotimes (i 5)
+     (accumulator-into acc i))
+   acc))
+    
+
+(define-test test-list-accumulator
+ 

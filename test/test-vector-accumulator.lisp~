@@ -1,0 +1,8 @@
+
+(define-test test-vector-accumulator
+  (assert-equal 
+   #(1 2 3)
+   (-> (make-accumulator 'vector)
+       (accumulator-into 1)
+       (accumulator-into 2)
+       (accumulator-into 3))))
