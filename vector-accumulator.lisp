@@ -1,6 +1,6 @@
 (defvar *vector-accumulator-default-size* 10)
 
-(defclass vector-accumulator (accumulator)
+(defclass vector-accumulator ()
   ((contents 
     :accessor contents 
     :reader accumulator-contents
@@ -18,7 +18,7 @@
 (defmethod make-accumulator 
   ((type (eql 'vector)) &key size (element-type t) adjustable)
   "Creates a VECTOR-ACCUMULATOR"
-  (make-accumulator 'vector-accumulator 
+  (make-instance 'vector-accumulator 
 		    :size size 
 		    :element-type element-type
 		    :adjustable adjustable))
@@ -26,7 +26,7 @@
 (defmethod initialize-instance :after 
   ((acc vector-accumulator) &key size (element-type t) adjustable)
   (let ((adjustable (if size adjustable t)))
-    (setf (accumulator-content acc)
+    (setf (contents acc)
 	  (make-array (or size *vector-accumulator-default-size*)
 		      :element-type element-type
 		      :fill-pointer 0
