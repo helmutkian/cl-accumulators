@@ -11,7 +11,7 @@
    "Accumulates its ARGS into the accumulator according to 
     the accumulator type. Returns the modified accumulator."))
 
-(defmethod accumulator-into :around ((acc accumulator) &rest args)
+(defmethod accumulator-into :around (acc &rest args)
   "This around method ensures that each call to 
    ACCUMULATOR-INTO returns the provided modified accumulator."
   (call-next-method)
