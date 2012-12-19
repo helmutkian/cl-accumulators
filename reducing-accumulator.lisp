@@ -10,7 +10,7 @@
 
 
 (defmethod make-accumulator ((type (eql 'reducing)) &rest initargs)
-  (apply #'make-instance 'reducing-accumulator initargs
+  (apply #'make-instance 'reducing-accumulator initargs))
 
 (defmethod accumulate ((acc reducing-accumulator) &rest args)
   (setf (val acc) (apply (fn acc) (val acc) args)))
