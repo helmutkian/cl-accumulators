@@ -9,7 +9,9 @@
 ###Arguments and Values:
 
 *type*--a **symbol** that names an accumulator type
+
 *initargs*--an initialization argument list.
+
 *accumulator*--a fresh instance of the accumulator type
 
 ###Description:
