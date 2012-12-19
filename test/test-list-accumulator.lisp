@@ -8,9 +8,7 @@
 (5am:test test-list-accumulator
   (5am:is 
    (equalp '(a b c)
-	  (accumulator-contents
-	   (-> (make-accumulator 'list)
-	       (accumulator-into 'a)
-	       (accumulator-into 'b)
-	       (accumulator-into 'c)))))) 
+	  (contents
+	   (accumulate* (make-accumulator 'list)
+			'(a b c))))))
    
