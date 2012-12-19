@@ -1,4 +1,4 @@
-
+# *Protocol* **Accumulator** 
 
 ##*Generic Function* **MAKE-ACCUMULATOR**
 
@@ -34,4 +34,37 @@ Methods on **make-accumulator** are dispatched on the *type* parameter and must 
 
 => <VECTOR-ACCUMULATOR>
 
+````
+
+##*Generic Function* **CONTENTS**
+
+###Syntax
+
+**contents** *accumulator* => *object*
+
+###Argument and Values
+
+*accumulator*--an instance of an accumulator type
+
+*object*--the object being accumulated by the accumulator
+
+###Description
+
+The generic function **contents** returns the object accumulated by
+the accumulator. It has the semantics of a *reader function* and should not be *setf*-able.
+
+Methods of **contents** do not guarantee to return a fresh object, and therefore destructive operations on its return value should be avoided.
+
+###Example:
+
+````lisp
+
+(setq list-acc (make-accumulator 'list))
+
+(dotimes (i 3)
+  (accumulate list-acc i))
+
+(contents list-acc)
+
+=> '(0 1 2)
 ````
