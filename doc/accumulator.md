@@ -38,17 +38,17 @@ Methods on **make-accumulator** are dispatched on the *type* parameter and must 
 
 ##*Generic Function* **CONTENTS**
 
-###Syntax
+###Syntax:
 
 **contents** *accumulator* => *object*
 
-###Argument and Values
+###Argument and Values:
 
 *accumulator*--an instance of an accumulator type
 
 *object*--the object being accumulated by the accumulator
 
-###Description
+###Description:
 
 The generic function **contents** returns the object accumulated by
 the accumulator. It has the semantics of a *reader function* and should not be *setf*-able.
