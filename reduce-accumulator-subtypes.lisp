@@ -10,25 +10,18 @@
 
 (defmethod make-accumulator ((type (eql 'max)) &rest initargs)
   (declare (ignore initargs))
-  (flet ((max* (x y)
-	   (if (or (null x) (< x y)) 
-	     y
-	     x)))
-	(make-accumulator 'reduce
-			  :function #'max*
-			  :intial-value nil)))
+  (make-accumulator 'reduce :function #'max)))
 
 (defmethod make-accumulator ((type (eql 'min)) &rest initargs)
   (declare (ignore initargs))
-  (flet ((min* (x y)
-	   (if (or (null x) (> x y))
-	     y
-	     x)))
-	(make-accumulator 'reduce
-			  :function #'min*
-			  :initial-value nil)))
+  (make-accumulator 'reduce :function #'min))
 
 (defmethod make-accumulator ((type (eql 'count)) &rest initargs)
   (declare (ignore initargs))
-  (make-accumulator 'reduce :function #'1+ :initial-value 0))
+  (make-accumulator 'reduce 
+		    :function 
+		    (lambda (counter x) 
+		      (declare (ignore x))
+		      (1+ counter))
+		    :initial-value 0))
 	   

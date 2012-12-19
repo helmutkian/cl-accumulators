@@ -13,5 +13,8 @@
   (apply #'make-instance 'reduce-accumulator initargs))
 
 (defmethod accumulate ((acc reduce-accumulator) &rest args)
-  (setf (val acc) (apply (fn acc) (val acc) args)))
+  (setf (val acc) 
+	(if (slot-boundp acc 'val)
+	    (apply (fn acc) (val acc) args)
+	    (apply (fn acc) args))))
     
