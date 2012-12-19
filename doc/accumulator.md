@@ -86,12 +86,9 @@ Methods of **contents** do not guarantee to return a fresh object, and therefore
 
 ###Description:
 
-The generic function **accumulate** collects its arguments within according to the accumulator type then returns an accumulator with the resultant changes.
+The generic function **accumulate** collects its arguments within according to the accumulator type then returns the provided accumulator with the resultant changes.
 
-An *around method* on **accumulate**, guarantees that the accumulator provided is returned, so if its methods destructively update the *accumulator* argument, then they need not explicitly return the modified accumulator. If these semantics are being overriden by the method, then it must provide its own *around method* for that accumulator type.
-
-The methods of **accumulate** do not guarantee to return a fresh accumulator object.
-
+An *around method* on **accumulate**, guarantees that the accumulator provided is returned, therefore methods do not need to explicitly return the modified accumulator.
 
 ###Example:
 
