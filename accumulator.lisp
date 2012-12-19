@@ -1,17 +1,17 @@
 
 
 
-(defgeneric accumulator-contents (accumulator)
+(defgeneric contents (accumulator)
   (:documentation 
    "Returns the accumulated content within the 
     accumalator object."))
 
-(defgeneric accumulator-into (accumulator &rest args)
+(defgeneric accumulate (accumulator &rest args)
   (:documentation 
    "Accumulates its ARGS into the accumulator according to 
     the accumulator type. Returns the modified accumulator."))
 
-(defmethod accumulator-into :around (acc &rest args)
+(defmethod accumulate :around (acc &rest args)
   "This around method ensures that each call to 
    ACCUMULATOR-INTO returns the provided modified accumulator."
   (call-next-method)

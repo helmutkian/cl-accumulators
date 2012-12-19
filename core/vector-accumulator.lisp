@@ -1,12 +1,12 @@
 (defvar *vector-accumulator-default-size* 10)
 
 (defclass vector-accumulator ()
-  ((contents 
-    :accessor contents 
-    :reader accumulator-contents
+  ((vec 
+    :accessor vec 
+    :reader contents
     :documentation 
     "Vector being accumulated. Its reader is a method 
-    on the generic function ACCUMULATOR-CONTENTS in the
+    on the generic function CONTENTS in the
     ACCUMULATOR protocol.")
    (push-function 
     :accessor push-function
@@ -15,18 +15,15 @@
      VECTOR-PUSH-EXTEND for adjustable vectors or VECTOR-PUSH
      for simple vectors.")))
 
-(defmethod make-accumulator 
-  ((type (eql 'vector)) &key size (element-type t) adjustable)
+(defmethod make-accumulator ((type (eql 'vector)) &rest initargs)
   "Creates a VECTOR-ACCUMULATOR"
-  (make-instance 'vector-accumulator 
-		    :size size 
-		    :element-type element-type
-		    :adjustable adjustable))
+  (apply #'make-instance 'vector-accumulator initargs)) 
+		   
 
 (defmethod initialize-instance :after 
   ((acc vector-accumulator) &key size (element-type t) adjustable)
   (let ((adjustable (if size adjustable t)))
-    (setf (contents acc)
+    (setf (vec acc)
 	  (make-array (or size *vector-accumulator-default-size*)
 		      :element-type element-type
 		      :fill-pointer 0
@@ -34,7 +31,7 @@
 	  (push-function acc)
 	  (if adjustable #'vector-push-extend #'vector-push))))
 
-(defmethod accumulator-into ((acc vector-accumulator) &rest args)
+(defmethod accumulate ((acc vector-accumulator) &rest args)
   (funcall (push-function acc)
 	   (car args)
-	   (accumulator-contents acc)))
+	   (vec acc)))

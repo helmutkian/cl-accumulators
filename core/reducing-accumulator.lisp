@@ -5,16 +5,13 @@
     :initarg :function)
    (val 
     :accessor val
-    :reader accumulator-contents
+    :reader contents
     :initarg :initial-value)))
 
 
-(defmethod make-accumulator 
-  ((type (eql 'reducing)) &key function initial-value)
-  (make-instance 'reducing-accumulator 
-		 :function function
-		 :initial-value initial-value))
+(defmethod make-accumulator ((type (eql 'reducing)) &rest initargs)
+  (apply #'make-instance 'reducing-accumulator initargs
 
-(defmethod accumulator-into ((acc reducing-accumulator) &rest args)
+(defmethod accumulate ((acc reducing-accumulator) &rest args)
   (setf (val acc) (apply (fn acc) (val acc) args)))
     
