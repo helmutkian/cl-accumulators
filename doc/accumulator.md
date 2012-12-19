@@ -110,5 +110,5 @@ An *around method* on **accumulate**, guarantees that the accumulator provided i
 
 (contents vector-acc)
 
-=> #('a 'b c)
+=> #('a 'b 'c)
 ````
