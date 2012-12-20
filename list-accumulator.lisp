@@ -1,3 +1,4 @@
+(in-package :com.helmutkian.cl-accumulators)
 
 (defclass list-accumulator ()
   ((contents 

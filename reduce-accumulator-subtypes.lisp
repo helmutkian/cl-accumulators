@@ -1,4 +1,4 @@
-
+(in-package :com.helmutkian.cl-accumulators)
 
 (defmethod make-accumulator ((type (eql 'product)) &rest initargs)
   (declare (ignore initargs))
@@ -10,7 +10,7 @@
 
 (defmethod make-accumulator ((type (eql 'max)) &rest initargs)
   (declare (ignore initargs))
-  (make-accumulator 'reduce :function #'max)))
+  (make-accumulator 'reduce :function #'max))
 
 (defmethod make-accumulator ((type (eql 'min)) &rest initargs)
   (declare (ignore initargs))

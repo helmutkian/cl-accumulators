@@ -1,3 +1,5 @@
+(in-package :com.helmutkian.cl-accumulators)
+
 (defvar *vector-accumulator-default-size* 10)
 
 (defclass vector-accumulator ()

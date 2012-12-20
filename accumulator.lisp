@@ -1,5 +1,4 @@
-
-
+(in-package :com.helmutkian.cl-accumulators)
 
 (defgeneric contents (accumulator)
   (:documentation 
