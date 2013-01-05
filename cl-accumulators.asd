@@ -3,6 +3,8 @@
   :components ((:file "package")
 	       (:file "accumulator"
 		      :depends-on ("package"))
+	       (:file "with-accumulators"
+		      :depends-on ("accumulator" "package"))
 	       (:file "list-accumulator"
 		      :depends-on ("accumulator" "package"))
 	       (:file "vector-accumulator"

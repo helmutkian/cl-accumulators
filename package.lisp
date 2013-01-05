@@ -5,4 +5,5 @@
   (:use #:common-lisp)
   (:export #:make-accumulator
 	   #:accumulate
-	   #:contents))
+	   #:contents
+	   #:with-accumulators))
