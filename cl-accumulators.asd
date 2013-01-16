@@ -7,6 +7,8 @@
 		      :depends-on ("accumulator" "package"))
 	       (:file "list-accumulator"
 		      :depends-on ("accumulator" "package"))
+	       (:file "reverse-list-accumulator"
+		      :depends-on ("accumulator" "package"))
 	       (:file "vector-accumulator"
 		      :depends-on ("accumulator" "package"))
 	       (:file "reduce-accumulator"
