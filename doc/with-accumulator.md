@@ -1,9 +1,8 @@
-
 ##*Macro* **WITH-ACCUMULATORS**
 
 ###Syntax:
 
-**with-accumulators** (*accumulator-form**) &body *body* => *collections*
+**with-accumulators** ( *accumulator-form** ) &body *body* => *collections*
 
 ###Arguments and Values:
 
@@ -15,7 +14,7 @@
 
 ###Description:
 
-Each *accumulator-form* follows the syntax (*variable-name* *accumulator-type* *initarg**). *Variable-name* being the symbol bound to the **accumulator** within the lexical scope; *accumulator-type* designates the kind of **accumulator** to be created; *initarg** being an argument list required to initialize the **accumulator**. These bindings are excuted in sequence with the same semantics as **let***.
+Each *accumulator-form* follows the syntax ( *variable-name* *accumulator-type* *initarg** ). *Variable-name* being the symbol bound to the **accumulator** within the lexical scope; *accumulator-type* designates the kind of **accumulator** to be created; *initarg** being an argument list required to initialize the **accumulator**. These bindings are excuted in sequence with the same semantics as **let***.
 
 **With-accumulators** evaluates to **values** corresponding to the contents of each **accumulator** declared in the sequence they were declared.
 
