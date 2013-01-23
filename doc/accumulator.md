@@ -22,7 +22,7 @@ any provided arguments.
 
 Methods on **make-accumulator** are dispatched on the *type* parameter and must either explicitly ignore or parse the initialization argument list, *initargs*.
 
-###Example
+###Example:
 
 ````lisp
 

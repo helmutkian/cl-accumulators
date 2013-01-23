@@ -3,6 +3,8 @@
 
 (defmacro with-accumulators (accumulator-forms &body body)
   `(let ,(mapcar (lambda (acc-form)
+		   ;; (the-acc :vector :size 10) 
+		   ;; => (the-acc (make-accumulator :vector :size 10))
 		   `(,(car acc-form) 
 		      (make-accumulator ,@(cdr acc-form))))
 		 accumulator-forms)
