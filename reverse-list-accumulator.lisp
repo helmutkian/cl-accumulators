@@ -11,5 +11,5 @@
   (declare (ignore initargs))
   (make-instance 'reverse-list-accumulator))
 
-(defmethod accumulate ((acc reverse-list-accumulator &rest args))
-  (push (car args) (list-of reverse-list-accumulator)))
+(defmethod accumulate ((acc reverse-list-accumulator) &rest args)
+  (push (car args) (list-of acc)))

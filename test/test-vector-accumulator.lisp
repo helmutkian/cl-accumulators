@@ -1,26 +1,26 @@
 
 
-(5am:test test-vector-accumulator-without-initargs
-  (5am:is 
-   (equalp (vector 1 2 3)
-	   (contents
-	    (accumulate* (make-accumulator 'vector)
-			 '(1 2 3))))))
-  
-(5am:test test-vector-accumulator-adjustable
-  (5am:is-true
+(test test-vector-accumulator-without-initargs
+  (is 
+   (equalp (vector 0 1 2)
+	   (with-accumulators ((acm 'vector))
+	     (dotimes (i 3)
+	       (accumulate acm i))))))
+	 
+(test test-vector-accumulator-adjustable
+  (is-true
    (adjustable-array-p 
     (contents 
      (make-accumulator 'vector))))
-  (5am:is-false
+  (is-false
    (adjustable-array-p
     (contents
      (make-accumulator 'vector :size 5))))
-  (5am:is-false
+  (is-false
    (adjustable-array-p
     (contents
      (make-accumulator-vector :adjustable nil))))
-  (5am:is-true
+  (is-true
    (adjustable-array-p
     (contents
      (make-accumulator 'vector :size 12 :adjustable t)))))

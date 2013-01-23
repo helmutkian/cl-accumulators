@@ -1,10 +1,9 @@
 
 
   
-(5am:test test-list-accumulator
-  (5am:is 
-   (equalp '(a b c)
-	  (contents
-	   (accumulate* (make-accumulator 'list)
-			'(a b c))))))
-   
+(test test-list-accumulator
+  (let ((the-list '(a b c)))
+    (is (equal the-list
+	       (with-accumulators ((acm 'list))
+		 (dolist (the-elm the-list)
+		   (accumulate acm the-elm)))))))
