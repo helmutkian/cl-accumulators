@@ -1,9 +1,9 @@
 
 
-(5am:test test-reverse-list-accumulator
+(test test-reverse-list-accumulator
   (let ((the-list '(1 2 3 4 5)))
-    (5am:is
+    (is
      (equal (reverse the-list)
-	    (contents
-	     (accumulate* (make-accumulator 'reverse-list)
-			  the-list))))))
+	    (with-accumulators ((acm 'reverse-list))
+	      (dolist ((elem the-list))
+		(accumulate acm elem)))))))

@@ -17,7 +17,7 @@
      VECTOR-PUSH-EXTEND for adjustable vectors or VECTOR-PUSH
      for simple vectors.")))
 
-(defmethod make-accumulator ((type (eql 'vector)) &rest initargs)
+(defmethod make-accumulator ((type (eql :vector)) &rest initargs)
   "Creates a VECTOR-ACCUMULATOR"
   (apply #'make-instance 'vector-accumulator initargs)) 
 		   

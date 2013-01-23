@@ -6,8 +6,7 @@
     :reader contents
     :initform nil)))
 
-(defmethod make-accumulator 
-    ((type (eql 'reverse-list)) &rest initargs)
+(defmethod make-accumulator ((type (eql :reverse-list)) &rest initargs)
   (declare (ignore initargs))
   (make-instance 'reverse-list-accumulator))
 

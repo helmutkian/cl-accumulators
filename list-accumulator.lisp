@@ -7,7 +7,7 @@
     :initform nil)
    (last-pointer :accessor last-pointer)))
 
-(defmethod make-accumulator ((type (eql 'list)) &rest initargs)
+(defmethod make-accumulator ((type (eql :list)) &rest initargs)
   (declare (ignore initargs))
   (make-instance 'list-accumulator))
 

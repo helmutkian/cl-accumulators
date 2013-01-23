@@ -10,7 +10,7 @@
     :initarg :initial-value)))
 
 
-(defmethod make-accumulator ((type (eql 'reduce)) &rest initargs)
+(defmethod make-accumulator ((type (eql :reduce)) &rest initargs)
   (apply #'make-instance 'reduce-accumulator initargs))
 
 (defmethod accumulate ((acc reduce-accumulator) &rest args)

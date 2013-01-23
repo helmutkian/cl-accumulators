@@ -4,14 +4,14 @@
 	       (:file "accumulator"
 		      :depends-on ("package"))
 	       (:file "with-accumulators"
-		      :depends-on ("accumulator" "package"))
+		      :depends-on ("accumulator"))
 	       (:file "list-accumulator"
-		      :depends-on ("accumulator" "package"))
+		      :depends-on ("accumulator"))
 	       (:file "reverse-list-accumulator"
-		      :depends-on ("accumulator" "package"))
+		      :depends-on ("accumulator"))
 	       (:file "vector-accumulator"
-		      :depends-on ("accumulator" "package"))
+		      :depends-on ("accumulator"))
 	       (:file "reduce-accumulator"
-		      :depends-on ("accumulator" "package"))
+		      :depends-on ("accumulator"))
 	       (:file "reduce-accumulator-subtypes"
-		      :depends-on ("reduce-accumulator" "package"))))
+		      :depends-on ("reduce-accumulator"))))
