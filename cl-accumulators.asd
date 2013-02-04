@@ -5,6 +5,8 @@
 		      :depends-on ("package"))
 	       (:file "with-accumulators"
 		      :depends-on ("accumulator"))
+	       (:file "with-accumulator"
+		      :depends-on ("with-accumulators"))
 	       (:file "list-accumulator"
 		      :depends-on ("accumulator"))
 	       (:file "reverse-list-accumulator"

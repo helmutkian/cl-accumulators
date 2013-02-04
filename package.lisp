@@ -6,4 +6,5 @@
   (:export #:make-accumulator
 	   #:accumulate
 	   #:contents
-	   #:with-accumulators))
+	   #:with-accumulators
+	   #:with-accumulator))
