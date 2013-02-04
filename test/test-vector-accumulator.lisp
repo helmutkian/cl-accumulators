@@ -9,7 +9,7 @@
 (test test-vector-accumulator-without-initargs
   (is 
    (equalp *test-vector*
-	   (with-accumulators ((acm 'vector))
+	   (with-accumulators ((acm :vector))
 	     (dotimes (i 3)
 	       (accumulate acm i))))))
 	 
