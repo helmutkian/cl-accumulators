@@ -1,3 +1,4 @@
+(in-package #:com.helmutkian.cl-accumulators)
 
 (defmacro with-accumulator (type-initargs &body body)
   (let ((acm (gensym)))
