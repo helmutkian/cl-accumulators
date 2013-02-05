@@ -1,28 +1,25 @@
+(in-package #:com.helmutkian.cl-accumulators.test)
 
-
-(defparameter *size-range* 100)
-
-(defparameter *test-vector* (vector 0 1 2))
-
-(test test-vector-accumulator-without-initargs 
+(test test-vector-accumulator 
   (let ((the-vector 
 	 (with-accumulator (:vector)
 	   (dotimes (i 3)
 	     (accumulate i)))))
     (is 
-     (equalp *test-vector*
+     (equalp #(0 1 2)
 	     the-vector))
     (is-true
      (adjustable-array-p the-vector))))
 	 
 
-(test test-vector-accumulator-with-size
-  (let* ((size (random *size-range*))
-	 (the-vector 
-	  (with-accumulator (:vector :size size))))
+(test test-vector-accumulator-with-initial-contents
+  (let ((init-contents '(1 2 3)))
     (is
-     (= size 
-	(array-total-size the-vector)))
-    (is-true
-     (adjustable-array-p the-vector))))
-
+     (equalp #(1 2 3)
+	     (with-accumulator 
+		 (:vector :initial-contents init-contents))))
+    (is
+     (equalp #(1 2 3 4)
+	     (with-accumulator
+		 (:vector :initial-contents init-contents)
+	       (accumulate 4))))))
