@@ -8,8 +8,13 @@
    (last-pointer :accessor last-pointer)))
 
 (defmethod make-accumulator ((type (eql :list)) &rest initargs)
-  (declare (ignore initargs))
-  (make-instance 'list-accumulator))
+  (apply #'make-instance 'list-accumulator initargs))
+
+(defmethod initialize-instance :after 
+    ((acc list-accumulator) &key initial-contents)
+    (when initial-contents
+      (dolist (elem initial-contents)
+	(accumulate acc elem))))
 
 (defmethod accumulate ((acc list-accumulator) &rest args)
   (with-accessors ((head-pointer head-pointer)

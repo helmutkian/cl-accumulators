@@ -17,11 +17,18 @@
 		   
 
 (defmethod initialize-instance :after 
-    ((acc vector-accumulator) &key size)
-  (setf (vec acc)
-	(make-array (or size *vector-accumulator-default-size*)
-		    :fill-pointer 0
-		    :adjustable t)))
+    ((acc vector-accumulator) &key initial-contents)
+  (let ((init-len (length initial-contents)))
+    (setf (vec acc)
+	  (multiple-value-call #'make-array
+	    (if initial-contents
+		(values init-len
+			:initial-contents initial-contents
+			:adjustable t
+			:fill-pointer init-len)
+		(values *vector-accumulator-default-size*
+			:adjustable t
+			:fill-pointer 0))))))
 
 (defmethod accumulate ((acc vector-accumulator) &rest args)
   (vector-push-extend (car args) (vec acc)))
